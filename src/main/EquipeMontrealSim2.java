@@ -4,13 +4,11 @@
  */
 package main;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 
 /**
@@ -93,7 +91,7 @@ public class EquipeMontrealSim2 {
      */
     public static void main(String[] args) {
         
-        
+        Scanner in = new Scanner(System.in);
         File f = new File(nomFichierSauvegarde);
         // TODO code application logic here
         if (f.exists()) {
@@ -103,10 +101,12 @@ public class EquipeMontrealSim2 {
             String rep = "a";
             while(rep.compareToIgnoreCase("o") != 0
                     && rep.compareToIgnoreCase("n") != 0) {
-                rep = "o";
+                rep = in.next();                       
             }
             if(rep.equalsIgnoreCase("o")) {
                 System.out.println("Chargement en cours");
+                //chargerPartie();
+                initialisserUnePartie();
                 
             } else {
                 System.out.println("Création d'une nouvelle partie");
@@ -119,10 +119,19 @@ public class EquipeMontrealSim2 {
         }
         //afficherScores();
         //Dagaaz.afficherEtapeGroupe();
-
-        afficherDruidesActifs();
-        SauvegargerPartie();
-        chargerPartie();
-
+        
+        String entree = " ";
+        while(entree.compareToIgnoreCase("e") != 0
+                && entree.compareToIgnoreCase("q") != 0) {
+            System.out.print("(L)ancer les runer,(E)nregistrer, ou (Q)uitter: ");
+            entree = in.next();
+            if (entree.equalsIgnoreCase("l")) {
+                System.out.println("Lancement des runes!");
+            }
+        }
+        if(entree.equalsIgnoreCase("e")) {
+            System.out.println("Enregistrement de la partie");
+            SauvegargerPartie();
+        }
     }
 }
