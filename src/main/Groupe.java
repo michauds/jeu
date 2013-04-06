@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author naddou
  */
-public class Groupe {
+public class Groupe extends Enregistrable{
 
     private String nomGroupe;
     private List<Druide> membres = new ArrayList<>();
@@ -20,9 +20,13 @@ public class Groupe {
     final String ELIMINATION = "ronde d'élimination";
     final String DEMI_F = "demi-final";
     final String FINAL = "FINAL";
+    public AnneeReference anneeReference;
     
     public Groupe(String nomGroupe) {
         this.nomGroupe = nomGroupe;
+        String annee = "2013";
+        String description = "Tournoi de " + annee;
+        this.anneeReference = new AnneeReference(annee, description); 
     }
 
     public String getNomGroupe() {
@@ -116,5 +120,21 @@ public class Groupe {
         System.out.println(points);
         System.out.println(noms);
         System.out.println(etat + "\n");
+    }
+    
+    public String sauvegarder() {
+        String seperateur = "#";
+        String ligne = nomGroupe + seperateur + ronde();
+        
+        for(int i=0; i < membres.size(); i++) {
+            Druide unDruide = membres.get(i);
+            ligne = ligne + seperateur + unDruide.getNom() + seperateur +
+                    unDruide.getScore() + seperateur + unDruide.getNombreAureus() +
+                    seperateur + unDruide.isEstEleminer();
+        }
+        return ligne + seperateur + anneeReference.getAnnee() + seperateur + anneeReference.getDescription();
+    }
+    
+    public void charger(String ligne) {
     }
 }

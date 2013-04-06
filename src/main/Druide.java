@@ -8,7 +8,7 @@ package main;
  *
  * @author naddou
  */
-public class Druide extends Enregistrable{
+public class Druide {
     
     private String nom;
     private boolean estEleminer = false;
@@ -52,13 +52,5 @@ public class Druide extends Enregistrable{
 
     public int getNombreAureus() {
         return nombreAureus;
-    }
-
-    public String sauvegarder(){
-        return "";
-    }
-    
-    public void charger(String ligne){
-        
     }
 }
