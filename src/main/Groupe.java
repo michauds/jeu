@@ -218,7 +218,7 @@ public class Groupe extends Enregistrable{
                     gagnant = membres.get(i);
                 }
             }
-            
+       
         } else if (ronde().equalsIgnoreCase(DEMI_F)) {
             /*
              * Vérifier s'il ne reste qu'un seul Druide actif
