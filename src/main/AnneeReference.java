@@ -18,6 +18,10 @@ public class AnneeReference {
         this.description = description;
     }
     
+    AnneeReference(){
+        this.annee = "";
+        this.description = "";
+    }
     public String getAnnee() {
         return annee;
     }

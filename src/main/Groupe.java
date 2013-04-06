@@ -22,12 +22,17 @@ public class Groupe extends Enregistrable{
     final String DEMI_F = "demi-final";
     final String FINAL = "FINAL";
     public AnneeReference anneeReference;
+    private String seperateur = "#";
     
     public Groupe(String nomGroupe) {
         this.nomGroupe = nomGroupe;
         String annee = "2013";
         String description = "Tournoi de " + annee;
         this.anneeReference = new AnneeReference(annee, description); 
+    }
+    public Groupe() {
+        this.nomGroupe = "";
+        this.anneeReference = new AnneeReference(); 
     }
 
     public String getNomGroupe() {
@@ -127,7 +132,6 @@ public class Groupe extends Enregistrable{
     
     @Override
     public String sauvegarder() {
-        String seperateur = "#";
         String ligne = nomGroupe + seperateur + ronde;
         
         for(int i=0; i < membres.size(); i++) {
@@ -139,10 +143,19 @@ public class Groupe extends Enregistrable{
         return ligne + seperateur + anneeReference.getAnnee() + seperateur + anneeReference.getDescription() + System.getProperty("line.separator");
     }
     
+    @Override
     public void charger(String ligne) {
-        int position = ligne.indexOf("#");
-        char nom[] = nomGroupe.toCharArray();
-        ligne.getChars(0, position, nom, 0);
-        nomGroupe = nom.toString();
+        int position = ligne.indexOf(seperateur);
+        String Name = ligne.substring(0, position);
+        this.nomGroupe = Name;
+        position++;
+        int position2 = ligne.indexOf(seperateur, position);
+        String ronde = ligne.substring(position, position2);
+        this.ronde = Integer.parseInt(ronde);
+        
+        chargerGroupe(position2++);
+    }
+    private void chargerGroupe(int positionDebut){
+        
     }
 }

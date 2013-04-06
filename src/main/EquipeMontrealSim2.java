@@ -73,8 +73,15 @@ public class EquipeMontrealSim2 {
         ListEnregistarble.add((Enregistrable) Jerah);
         ListEnregistarble.add((Enregistrable) Tiwaz);
         Enregistrement.sauvegarderFichier(nomFichierSauvegarde, ListEnregistarble);
-        //ListEnregistarble.clear();
-        //Enregistrement.chargerFichier(nomFichierSauvegarde, ListEnregistarble);
+    }
+    
+        private static void chargerPartie(){
+        List<Enregistrable> ListEnregistarble = new ArrayList<>();
+        ListEnregistarble.add((Enregistrable) new Groupe());
+        ListEnregistarble.add((Enregistrable) new Groupe());
+        ListEnregistarble.add((Enregistrable) new Groupe());
+        ListEnregistarble.add((Enregistrable) new Groupe());
+        Enregistrement.chargerFichier(nomFichierSauvegarde, ListEnregistarble);
     }
     /**
      * @param args the command line arguments
@@ -86,5 +93,6 @@ public class EquipeMontrealSim2 {
         //Dagaaz.afficherEtapeGroupe();
         afficherDruidesActifs();
         SauvegargerPartie();
+        chargerPartie();
     }
 }
