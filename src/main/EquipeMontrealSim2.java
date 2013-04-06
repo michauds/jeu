@@ -33,7 +33,7 @@ public class EquipeMontrealSim2 {
                 }
             }
             if (Jerah != null) {
-                if (!Jerah.ajouterMembres(Arrays.asList("Isaaz", "Perpo", "Algiz", "Sowilo"), 20)) {
+                if (!Jerah.ajouterMembres(Arrays.asList("Isaaz", "Perpo", "Algiz", "Sowilo"), 0)) {
                     throw new InitialisationException("Initialisation Invalide de Jerah");
                 }
             }
@@ -57,9 +57,13 @@ public class EquipeMontrealSim2 {
         Eihwaz.afficherScores();
         Jerah.afficherScores();
         Tiwaz.afficherScores();
-        Dagaaz.afficherEtapeGroupe();
+        //Dagaaz.afficherEtapeGroupe();
         
         
+        Dagaaz.afficherDruidesActifs();
+        Eihwaz.afficherDruidesActifs();
+        Jerah.afficherDruidesActifs();
+        Tiwaz.afficherDruidesActifs();
     }
 
 }

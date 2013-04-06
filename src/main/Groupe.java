@@ -62,7 +62,7 @@ public class Groupe {
     }
     
     public void afficherScores() {
-        System.out.println("Groupe: " + nomGroupe);
+        System.out.println("Groupe: " + nomGroupe + "\t(" + ronde() + ")");
         String points = "Points: ";
         String noms = "Druides: ";
         
@@ -70,34 +70,51 @@ public class Groupe {
             points += String.valueOf(membres.get(i).getScore());    
             noms += membres.get(i).getNom();
             if (i+1 != membres.size()) {
-                points += "\t";
-                noms += "\t";
+                points += "\t\t";
+                noms += "\t\t";
             }
         }
         System.out.println(points);
         System.out.println(noms + "\n");
     }
-     public void afficherEtapeGroupe(){
-        
-        if(membres.size() >= 3){
-            System.out.println("Groupe : " + nomGroupe + "ronde d'élimination");
+    public String ronde(){
+        String ronde = "";
+         if(membres.size() >= 3){
+            ronde =  "ronde d'élimination";
             
         }else if(membres.size() == 2){
-            System.out.println("Groupe : " + nomGroupe + "demi-final");
+            ronde = "demi-final";
+            
         }else if(membres.size() == 1){
-            System.out.println("Groupe : " + nomGroupe + "final");
+            ronde =  "final";
         }else{
-            System.out.println("Groupe : " + nomGroupe + "eliminer");
+            ronde = "eliminer";
         }
-        if(!membres.isEmpty()){
-            System.out.println("points : ");
-            for(int i=0; i<membres.size(); i++){
-                System.out.println( membres.get(i).getScore() + "    ");  
+        return ronde;
+    }
+    
+    public void afficherDruidesActifs() {
+        System.out.println("Groupe: " + nomGroupe + "\t(" + ronde() + ")");
+        String points = "Points: ";
+        String noms = "Druides: ";
+        String etat = "Statut: ";
+        
+        for(int i=0; i < membres.size(); i++) {
+            points += String.valueOf(membres.get(i).getScore());    
+            noms += membres.get(i).getNom();
+            
+            if (i+1 != membres.size()) {
+                points += "\t";
+                noms += "\t";
             }
-            System.out.println("druides : ");
-             for(int i=0; i<membres.size(); i++){
-                System.out.println( membres.get(i).getNom() + "   ");  
+            if (membres.get(i).getScore() <= 0) {
+                etat += "Inactivé\t";
+            } else {
+                etat += "\t\t";
             }
         }
+        System.out.println(points);
+        System.out.println(noms);
+        System.out.println(etat + "\n");
     }
 }
