@@ -63,8 +63,8 @@ public class Groupe {
     
     public void afficherScores() {
         System.out.println("Groupe: " + nomGroupe + "\t(" + ronde() + ")");
-        String points = "Points: ";
-        String noms = "Druides: ";
+        String points = "Points :\t";
+        String noms = "Druides:\t";
         
         for(int i=0; i < membres.size(); i++) {
             points += String.valueOf(membres.get(i).getScore());    
@@ -94,10 +94,9 @@ public class Groupe {
     }
     
     public void afficherDruidesActifs() {
-        System.out.println("Groupe: " + nomGroupe + "\t(" + ronde() + ")");
-        String points = "Points: ";
-        String noms = "Druides: ";
-        String etat = "Statut: ";
+        String points = "Points :\t";
+        String noms = "Druides :\t";
+        String etat = "Statut :\t";
         
         for(int i=0; i < membres.size(); i++) {
             points += String.valueOf(membres.get(i).getScore());    
@@ -108,9 +107,9 @@ public class Groupe {
                 noms += "\t";
             }
             if (membres.get(i).getScore() <= 0) {
-                etat += "Inactivé\t";
+                etat += "Inactivé ";
             } else {
-                etat += "\t\t";
+                etat += "\t";
             }
         }
         System.out.println(points);
