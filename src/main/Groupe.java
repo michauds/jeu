@@ -7,6 +7,7 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  *
  * @author naddou
@@ -67,8 +68,8 @@ public class Groupe extends Enregistrable{
     
     public void afficherScores() {
         System.out.println("Groupe: " + nomGroupe + "\t(" + ronde() + ")");
-        String points = "Points: ";
-        String noms = "Druides: ";
+        String points = "Points :\t";
+        String noms = "Druides:\t";
         
         for(int i=0; i < membres.size(); i++) {
             points += String.valueOf(membres.get(i).getScore());    
@@ -98,28 +99,30 @@ public class Groupe extends Enregistrable{
     }
     
     public void afficherDruidesActifs() {
-        System.out.println("Groupe: " + nomGroupe + "\t(" + ronde() + ")");
-        String points = "Points: ";
-        String noms = "Druides: ";
-        String etat = "Statut: ";
-        
+        StringBuilder output = new StringBuilder();
+        output.setLength(15);
+        String lpoints = "Points :\t";
+        String lnoms = "Druides :\t";
+        String letat = "Statut :\t";
+        String points = "",noms = "",etat = "";
         for(int i=0; i < membres.size(); i++) {
             points += String.valueOf(membres.get(i).getScore());    
-            noms += membres.get(i).getNom();
-            
-            if (i+1 != membres.size()) {
-                points += "\t";
+            noms += membres.get(i).getNom();       
+            if (i+1 != membres.size()) {      
                 noms += "\t";
+                points += "\t   ";
             }
             if (membres.get(i).getScore() <= 0) {
-                etat += "Inactivé\t";
+                etat += "Inactivé ";
             } else {
-                etat += "\t\t";
+                etat += " ";
             }
         }
-        System.out.println(points);
-        System.out.println(noms);
-        System.out.println(etat + "\n");
+        System.out.print(lpoints);
+        output.append(points);
+        System.out.println(output);
+        System.out.println(String.format("%s %-20s", lnoms,noms));
+        System.out.println(String.format("%s %-20s", letat,etat));
     }
     
     public String sauvegarder() {
