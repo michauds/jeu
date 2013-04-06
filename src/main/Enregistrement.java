@@ -26,6 +26,7 @@ public class Enregistrement{
         }
     }
     public static void chargerFichier(String Fichier, List<Enregistrable> listObjetc){
-        
+        String ligne = "Dagaaz#0#Uruz#20#0#false#Thurisaz#20#0#false#Raido#20#0#false#Kaunaan#20#0#false#2013#Tournoi de 2013";
+        listObjetc.get(0).charger(ligne);
     } 
 }

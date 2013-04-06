@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Groupe extends Enregistrable{
 
-    private String nomGroupe;
+    private String nomGroupe = "";
     private List<Druide> membres = new ArrayList<>();
     static public final int maximumParticipant = 4;
     int ronde;
@@ -140,5 +140,9 @@ public class Groupe extends Enregistrable{
     }
     
     public void charger(String ligne) {
+        int position = ligne.indexOf("#");
+        char nom[] = nomGroupe.toCharArray();
+        ligne.getChars(0, position, nom, 0);
+        nomGroupe = nom.toString();
     }
 }

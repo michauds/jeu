@@ -73,6 +73,8 @@ public class EquipeMontrealSim2 {
         ListEnregistarble.add((Enregistrable) Jerah);
         ListEnregistarble.add((Enregistrable) Tiwaz);
         Enregistrement.sauvegarderFichier(nomFichierSauvegarde, ListEnregistarble);
+        //ListEnregistarble.clear();
+        //Enregistrement.chargerFichier(nomFichierSauvegarde, ListEnregistarble);
     }
     /**
      * @param args the command line arguments
