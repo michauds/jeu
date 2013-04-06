@@ -4,7 +4,9 @@
  */
 package main;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -23,11 +25,25 @@ public class Enregistrement{
                 out.write(ligne);
             }
         } catch (IOException e) {
+            e.printStackTrace();
         }
     }
     public static void chargerFichier(String Fichier, List<Enregistrable> listObjetc){
-        String ligne = "Dagaaz#0#Uruz#20#0#false#Thurisaz#20#0#false#Raido#20#0#false#Kaunaan#20#0#false#2013#Tournoi de 2013";
-        listObjetc.get(0).charger(ligne);
-        listObjetc.get(1).charger(ligne);
+
+        //String ligne = "Dagaaz#0#Uruz#20#0#false#Thurisaz#20#0#false#Raido#20#0#false#Kaunaan#20#0#false#2013#Tournoi de 2013";
+        //listObjetc.get(0).charger(ligne);
+        
+        try (BufferedReader in = new BufferedReader(new FileReader(Fichier), Integer.SIZE)) {
+            String ligne;
+            int iterateur = 0;
+            while((ligne = in.readLine()) != null) {
+                listObjetc.get(iterateur).charger(ligne);
+                iterateur ++;
+            }
+            in.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     } 
 }

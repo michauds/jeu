@@ -4,9 +4,14 @@
  */
 package main;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 
 /**
  *
@@ -87,12 +92,37 @@ public class EquipeMontrealSim2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        
+        File f = new File(nomFichierSauvegarde);
         // TODO code application logic here
-        initialisserUnePartie();
-        afficherScores();
+        if (f.exists()) {
+            System.out.println("Il existe une partie enregistrée.");
+            System.out.println("Voulez-vous rétablir la partie enregistrée? (O/N)");
+            
+            String rep = "a";
+            while(rep.compareToIgnoreCase("o") != 0
+                    && rep.compareToIgnoreCase("n") != 0) {
+                rep = "o";
+            }
+            if(rep.equalsIgnoreCase("o")) {
+                System.out.println("Chargement en cours");
+                
+            } else {
+                System.out.println("Création d'une nouvelle partie");
+                initialisserUnePartie();
+            }
+        
+        } else {
+            System.out.println("Création d'une nouvelle partie");
+            initialisserUnePartie();
+        }
+        //afficherScores();
         //Dagaaz.afficherEtapeGroupe();
+
         afficherDruidesActifs();
         SauvegargerPartie();
         chargerPartie();
+
     }
 }
