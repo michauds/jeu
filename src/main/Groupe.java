@@ -14,7 +14,7 @@ import java.util.List;
 public class Groupe {
 
     private String nomGroupe;
-    private List<Druide> mombres = new ArrayList<>();
+    private List<Druide> membres = new ArrayList<>();
     static public final int maximumParticipant = 4;
 
     public Groupe(String nomGroupe) {
@@ -25,28 +25,28 @@ public class Groupe {
         return nomGroupe;
     }
 
-    public List<Druide> getMombres() {
-        return mombres;
+    public List<Druide> getMembres() {
+        return membres;
     }
 
-    public void setMombres(ArrayList<Druide> mombres) {
-        this.mombres = mombres;
+    public void setMembres(ArrayList<Druide> membres) {
+        this.membres = membres;
     }
 
     public boolean ajouterMembre(Druide unDruide) {
 
-        if (mombres != null && mombres.size() < 4) {
-            return mombres.add(unDruide);
+        if (membres != null && membres.size() < 4) {
+            return membres.add(unDruide);
         }
         return false;
     }
 
-    public boolean ajouterMembres(List<String> nomDesMembres) {
+    public boolean ajouterMembres(List<String> nomDesMembres, int points) {
         boolean operationReussit = true;
         if (!nomDesMembres.isEmpty()) {
             for (int i = 0; i < nomDesMembres.size(); i++) {
-                if (mombres != null && mombres.size() < 4) {
-                    if (!mombres.add(new Druide(nomDesMembres.get(i), 0))) {
+                if (membres != null && membres.size() < 4) {
+                    if (!membres.add(new Druide(nomDesMembres.get(i), points))) {
                         operationReussit = false;
                     }
                 } else {
@@ -55,5 +55,22 @@ public class Groupe {
             }
         }
         return operationReussit;
+    }
+    
+    public void afficherScores() {
+        System.out.println("Groupe: " + nomGroupe + "\n");
+        String points = "Points: ";
+        String noms = "Druides: ";
+        
+        for(int i=0; i < membres.size(); i++) {
+            points += String.valueOf(membres.get(i).getScore());    
+            noms += membres.get(i).getNom();
+            if (i+1 != membres.size()) {
+                points += "\t";
+                noms += "\t";
+            }
+        }
+        System.out.println(points);
+        System.out.println(noms);
     }
 }

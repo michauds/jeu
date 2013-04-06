@@ -23,22 +23,22 @@ public class EquipeMontrealSim2 {
         Tiwaz = new Groupe("Tiwaz");
         try {
             if (Dagaaz != null) {
-                if (!Dagaaz.ajouterMembres(Arrays.asList("Uruz", "Thurisaz", "Raido", "Kaunaan"))) {
+                if (!Dagaaz.ajouterMembres(Arrays.asList("Uruz", "Thurisaz", "Raido", "Kaunaan"), 20)) {
                     throw new InitialisationException("Initialisation Invalide de Dagaaz");
                 }
             }
             if (Eihwaz != null) {
-                if (!Eihwaz.ajouterMembres(Arrays.asList("Gebo", "Wunjo", "Hagalaaz", "Naudiz"))) {
+                if (!Eihwaz.ajouterMembres(Arrays.asList("Gebo", "Wunjo", "Hagalaaz", "Naudiz"), 20)) {
                     throw new InitialisationException("Initialisation Invalide de Eihwaz");
                 }
             }
             if (Jerah != null) {
-                if (!Jerah.ajouterMembres(Arrays.asList("Isaaz", "Perpo", "Algiz", "Sowilo"))) {
+                if (!Jerah.ajouterMembres(Arrays.asList("Isaaz", "Perpo", "Algiz", "Sowilo"), 20)) {
                     throw new InitialisationException("Initialisation Invalide de Jerah");
                 }
             }
             if (Tiwaz != null) {
-                if (!Tiwaz.ajouterMembres(Arrays.asList("Othalaan", "Ingwaz", "Mannaz", "Berkanan"))) {
+                if (!Tiwaz.ajouterMembres(Arrays.asList("Othalaan", "Ingwaz", "Mannaz", "Berkanan"), 20)) {
                     throw new InitialisationException("Initialisation Invalide de Tiwaz");
                 }
             }
@@ -53,6 +53,11 @@ public class EquipeMontrealSim2 {
     public static void main(String[] args) {
         // TODO code application logic here
         initialisserUnePartie();
+        Dagaaz.afficherScores();
+        Eihwaz.afficherScores();
+        Jerah.afficherScores();
+        Tiwaz.afficherScores();
+        
     }
 
 }
