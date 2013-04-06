@@ -58,7 +58,7 @@ public class Groupe {
     }
     
     public void afficherScores() {
-        System.out.println("Groupe: " + nomGroupe + "\n");
+        System.out.println("Groupe: " + nomGroupe);
         String points = "Points: ";
         String noms = "Druides: ";
         
@@ -71,6 +71,6 @@ public class Groupe {
             }
         }
         System.out.println(points);
-        System.out.println(noms);
+        System.out.println(noms + "\n");
     }
 }
