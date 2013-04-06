@@ -20,6 +20,14 @@ public class Druide {
         this.score = score;
     }
     
+    public Druide(){
+        this.nom = "";
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+    
     public Druide(String nom, int score, int nombreAureus){
         this.nom = nom;
         this.score = score;

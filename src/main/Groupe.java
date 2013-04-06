@@ -23,6 +23,7 @@ public class Groupe extends Enregistrable{
     final String FINAL = "FINAL";
     public AnneeReference anneeReference;
     private String seperateur = "#";
+    private int debutPositionGroupe;
     
     public Groupe(String nomGroupe) {
         this.nomGroupe = nomGroupe;
@@ -33,6 +34,9 @@ public class Groupe extends Enregistrable{
     public Groupe() {
         this.nomGroupe = "";
         this.anneeReference = new AnneeReference(); 
+         for (int i = 0; i < maximumParticipant; i++) {
+              membres.add(new Druide());
+         }
     }
 
     public String getNomGroupe() {
@@ -146,17 +150,36 @@ public class Groupe extends Enregistrable{
     @Override
     public void charger(String ligne) {
         int position = ligne.indexOf(seperateur);
-        String Name = ligne.substring(0, position);
-        this.nomGroupe = Name;
+        this.nomGroupe = ligne.substring(0, position);
         position++;
-        int position2 = ligne.indexOf(seperateur, position);
-        String ronde = ligne.substring(position, position2);
-        this.ronde = Integer.parseInt(ronde);
+        debutPositionGroupe = ligne.indexOf(seperateur, position);
+        this.ronde = Integer.parseInt(ligne.substring(position, debutPositionGroupe));
         for(int i=0; i < membres.size(); i++) {
-            chargerGroupe(position2++, membres.get(i));
+            membres.set(i , chargerGroupe(ligne, debutPositionGroupe+1));
         }
     }
-    private void chargerGroupe(int positionDebut, Druide unDruide){
+    private Druide chargerGroupe(String ligne, int positionDebut){
+        Druide unDruide = new Druide();
+        int position = ligne.indexOf(seperateur, positionDebut+1);
+        String nom = ligne.substring(positionDebut, position);
+        unDruide.setNom(nom);
         
+        int position2 = ligne.indexOf(seperateur, position+1);
+        String score = ligne.substring(position+1, position2);
+        unDruide.setScore(Integer.parseInt(score));
+        
+        int position3 = ligne.indexOf(seperateur, position2+1);
+        String nombreAureus = ligne.substring(position2+1, position3);
+        unDruide.setNombreAureus(Integer.parseInt(nombreAureus));
+        
+        int position4 = ligne.indexOf(seperateur, position3+1);
+        String eliminer = ligne.substring(position3+1, position4);
+        if (eliminer.equals("false")){
+            unDruide.setEstEleminer(false);
+        }else{
+            unDruide.setEstEleminer(true);
+        }
+        debutPositionGroupe = position4;
+        return unDruide;
     }
 }
