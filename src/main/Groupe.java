@@ -237,7 +237,7 @@ public class Groupe extends Enregistrable{
                 }
             }
             /*
-             * Vérifier si un membre à atteint plus de 100 pts
+             * Vérifier si un membre à atteint plus de 200 pts
              */
             for(int i=0; i < membres.size(); i++) {
                 if(membres.get(i).getScore() > 200) {
