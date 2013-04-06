@@ -157,6 +157,14 @@ public class Groupe extends Enregistrable{
         for(int i=0; i < membres.size(); i++) {
             membres.set(i , chargerGroupe(ligne, debutPositionGroupe+1));
         }
+        
+        int position2 = ligne.indexOf(seperateur, debutPositionGroupe+1);
+        String annee = ligne.substring(debutPositionGroupe+1, position2);
+        this.anneeReference.setAnnee(annee);
+        
+        int position3 = ligne.lastIndexOf(seperateur);
+        String description = ligne.substring(position3+1, ligne.length());
+        this.anneeReference.setDescription(description);
     }
     private Druide chargerGroupe(String ligne, int positionDebut){
         Druide unDruide = new Druide();

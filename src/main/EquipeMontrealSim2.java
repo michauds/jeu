@@ -85,6 +85,11 @@ public class EquipeMontrealSim2 {
         ListEnregistarble.add((Enregistrable) new Groupe());
         ListEnregistarble.add((Enregistrable) new Groupe());
         Enregistrement.chargerFichier(nomFichierSauvegarde, ListEnregistarble);
+        Dagaaz = (Groupe) ListEnregistarble.get(0);
+        Eihwaz = (Groupe) ListEnregistarble.get(1);
+        Jerah = (Groupe) ListEnregistarble.get(2);
+        Tiwaz = (Groupe) ListEnregistarble.get(3);
+        afficherScores();
     }
     /**
      * @param args the command line arguments
@@ -105,8 +110,7 @@ public class EquipeMontrealSim2 {
             }
             if(rep.equalsIgnoreCase("o")) {
                 System.out.println("Chargement en cours");
-                //chargerPartie();
-                initialisserUnePartie();
+                chargerPartie();
                 
             } else {
                 System.out.println("Création d'une nouvelle partie");
