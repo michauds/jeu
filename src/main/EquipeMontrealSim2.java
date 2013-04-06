@@ -46,24 +46,29 @@ public class EquipeMontrealSim2 {
             // Logger l'erreur
         }
     }
+    private static void afficherScores(){
+        Dagaaz.afficherScores();
+        Eihwaz.afficherScores();
+        Jerah.afficherScores();
+        Tiwaz.afficherScores();
+    }
     
+    private static void afficherDruidesActifs(){
+        Dagaaz.afficherDruidesActifs();
+        Eihwaz.afficherDruidesActifs();
+        Jerah.afficherDruidesActifs();
+        Tiwaz.afficherDruidesActifs();
+    }
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
         initialisserUnePartie();
-        Dagaaz.afficherScores();
-        Eihwaz.afficherScores();
-        Jerah.afficherScores();
-        Tiwaz.afficherScores();
+        afficherScores();
         //Dagaaz.afficherEtapeGroupe();
-        
-        
-        Dagaaz.afficherDruidesActifs();
-        Eihwaz.afficherDruidesActifs();
-        Jerah.afficherDruidesActifs();
-        Tiwaz.afficherDruidesActifs();
+        afficherDruidesActifs();
+
     }
 
 }

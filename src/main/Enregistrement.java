@@ -13,9 +13,9 @@ import java.util.List;
  *
  * @author naddou
  */
-public class Enregistrement implements IEnregistrement{
-    @Override
-    public void sauvegarderFichier(String Fichier, List<Enregistrable> listObjetc){
+public class Enregistrement{
+    
+    public static void sauvegarderFichier(String Fichier, List<Enregistrable> listObjetc){
         try {
             BufferedWriter out = new BufferedWriter(new FileWriter(Fichier), Integer.SIZE);
             
@@ -30,8 +30,7 @@ public class Enregistrement implements IEnregistrement{
         
         
     }
-    @Override
-    public void chargerFichier(String Fichier, List<Enregistrable> listObjetc){
+    public static void chargerFichier(String Fichier, List<Enregistrable> listObjetc){
         
     } 
 }
