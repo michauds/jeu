@@ -152,10 +152,11 @@ public class Groupe extends Enregistrable{
         int position2 = ligne.indexOf(seperateur, position);
         String ronde = ligne.substring(position, position2);
         this.ronde = Integer.parseInt(ronde);
-        
-        chargerGroupe(position2++);
+        for(int i=0; i < membres.size(); i++) {
+            chargerGroupe(position2++, membres.get(i));
+        }
     }
-    private void chargerGroupe(int positionDebut){
+    private void chargerGroupe(int positionDebut, Druide unDruide){
         
     }
 }
