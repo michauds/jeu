@@ -128,7 +128,7 @@ public class Groupe extends Enregistrable{
     @Override
     public String sauvegarder() {
         String seperateur = "#";
-        String ligne = nomGroupe + seperateur + ronde();
+        String ligne = nomGroupe + seperateur + ronde;
         
         for(int i=0; i < membres.size(); i++) {
             Druide unDruide = membres.get(i);

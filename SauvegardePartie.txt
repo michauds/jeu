@@ -1,4 +1,4 @@
-Dagaaz#ronde d'élimination#Uruz#20#0#false#Thurisaz#20#0#false#Raido#20#0#false#Kaunaan#20#0#false#2013#Tournoi de 2013
-Eihwaz#ronde d'élimination#Gebo#20#0#false#Wunjo#20#0#false#Hagalaaz#20#0#false#Naudiz#20#0#false#2013#Tournoi de 2013
-Jerah#ronde d'élimination#Isaaz#0#0#false#Perpo#0#0#false#Algiz#0#0#false#Sowilo#0#0#false#2013#Tournoi de 2013
-Tiwaz#ronde d'élimination#Othalaan#20#0#false#Ingwaz#20#0#false#Mannaz#20#0#false#Berkanan#20#0#false#2013#Tournoi de 2013
+Dagaaz#0#Uruz#20#0#false#Thurisaz#20#0#false#Raido#20#0#false#Kaunaan#20#0#false#2013#Tournoi de 2013
+Eihwaz#0#Gebo#20#0#false#Wunjo#20#0#false#Hagalaaz#20#0#false#Naudiz#20#0#false#2013#Tournoi de 2013
+Jerah#0#Isaaz#0#0#false#Perpo#0#0#false#Algiz#0#0#false#Sowilo#0#0#false#2013#Tournoi de 2013
+Tiwaz#0#Othalaan#20#0#false#Ingwaz#20#0#false#Mannaz#20#0#false#Berkanan#20#0#false#2013#Tournoi de 2013
