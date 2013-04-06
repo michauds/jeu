@@ -2,12 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package calculLancerRune;
+package Tournoi;
 
 import java.util.*;
-import jeurune.druide.rune.Positionnement;
-import jeurune.druide.rune.Rune;
-import jeurune.gobelet.Gobelet;
 
 /**
  *
