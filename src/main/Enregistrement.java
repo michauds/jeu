@@ -4,7 +4,9 @@
  */
 package main;
 
-import java.nio.file.Path;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -14,9 +16,19 @@ import java.util.List;
 public class Enregistrement implements IEnregistrement{
     @Override
     public void sauvegarderFichier(String Fichier, List<Enregistrable> listObjetc){
-        for(int i=0; i < listObjetc.size(); i++) {
-            String ligne = listObjetc.get(i).sauvegarder();
+        try {
+            BufferedWriter out = new BufferedWriter(new FileWriter(Fichier), Integer.SIZE);
+            
+            for(int i=0; i < listObjetc.size(); i++) {
+                String ligne = listObjetc.get(i).sauvegarder();
+                out.write(ligne);
+            }
+            out.close();
+        } catch (IOException e) {
+            
         }
+        
+        
     }
     @Override
     public void chargerFichier(String Fichier, List<Enregistrable> listObjetc){
