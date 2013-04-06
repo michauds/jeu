@@ -182,4 +182,61 @@ public class Groupe extends Enregistrable{
         debutPositionGroupe = position4;
         return unDruide;
     }
+    
+    public Druide declarerGagnant() {
+        Druide gagnant = null;
+        if(ronde().equalsIgnoreCase(ELIMINATION)) {
+            /*
+             * Vérifier s'il ne reste qu'un seul Druide actif
+             */
+            int nbActif = 0;
+            for(int i=0; i < membres.size(); i++) {
+                if(membres.get(i).getScore() > 0) {
+                    nbActif++;
+                }
+            }
+            if (nbActif == 1) {
+                for(int i=0; i < membres.size(); i++) {
+                    if(membres.get(i).getScore() > 0) {
+                        gagnant = membres.get(i);
+                    }
+                }
+            }
+            /*
+             * Vérifier si un membre à atteint plus de 100 pts
+             */
+            for(int i=0; i < membres.size(); i++) {
+                if(membres.get(i).getScore() > 100) {
+                    gagnant = membres.get(i);
+                }
+            }
+            
+        } else if (ronde().equalsIgnoreCase(DEMI_F)) {
+            /*
+             * Vérifier s'il ne reste qu'un seul Druide actif
+             */
+            int nbActif = 0;
+            for(int i=0; i < membres.size(); i++) {
+                if(membres.get(i).getScore() > 0) {
+                    nbActif++;
+                }
+            }
+            if (nbActif == 1) {
+                for(int i=0; i < membres.size(); i++) {
+                    if(membres.get(i).getScore() > 0) {
+                        gagnant = membres.get(i);
+                    }
+                }
+            }
+            /*
+             * Vérifier si un membre à atteint plus de 100 pts
+             */
+            for(int i=0; i < membres.size(); i++) {
+                if(membres.get(i).getScore() > 200) {
+                    gagnant = membres.get(i);
+                }
+            }
+        }
+        return gagnant;
+    }
 }
