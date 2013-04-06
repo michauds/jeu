@@ -4,11 +4,16 @@
  */
 package main;
 
+import Tournoi.CalculLancerRune;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import Tournoi.Gobelet;
+import Tournoi.Positionnement;
+import Tournoi.Rune;
+import java.util.Iterator;
 
 
 /**
@@ -55,6 +60,56 @@ public class EquipeMontrealSim2 {
         }
     }
 
+    private static void jouerRonde(Groupe groupe) {
+        System.out.println("Groupe: " + groupe.getNomGroupe());
+        String points = "Points :\t";
+        String noms = "Druides:\t";
+        String surface = "Surface:\t";
+        String tombes = "Tombées:\t";
+        for(int i=0; i < groupe.getMembres().size(); i++) {
+            
+            
+            points += String.valueOf(groupe.getMembres().get(i).getScore());    
+            noms += groupe.getMembres().get(i).getNom();           
+            Gobelet goblet = new Gobelet();
+            ArrayList<Rune> runes = goblet.LancerGobelet();
+            
+            int diffPoints = CalculLancerRune.calculPointTourDeRonde(runes);
+            
+            for(int j = 0; j < runes.size(); j++) {
+                if(runes.get(j).getPosition() == Positionnement.ENJEU) {
+                    surface += runes.get(j).toString();
+                } else {
+                    tombes += runes.get(j).toString();
+                }
+            }
+            
+            surface += "\t";
+            tombes += "\t";
+            noms += "\t";
+            points += "\t";
+            
+        }
+        
+        System.out.println(points);
+        System.out.println(noms);
+        System.out.println(surface);
+        System.out.println(tombes);
+    }
+    
+    
+        /*
+        
+        for(int i=0; i < membres.size(); i++) {
+            
+            if (i+1 != membres.size()) {
+                points += "\t\t";
+                noms += "\t\t";
+            }
+        }
+        
+    */
+        
     private static void afficherScores() {
         Dagaaz.afficherScores();
         Eihwaz.afficherScores();
@@ -140,7 +195,7 @@ public class EquipeMontrealSim2 {
              */
             if (entree.equalsIgnoreCase("l")) {
                 
-                System.out.println("Lancement des runes!");
+                jouerRonde(Dagaaz);
             
             } /* FIN D'UNE RONDE */
         } /* FIN GAME LOOP */
