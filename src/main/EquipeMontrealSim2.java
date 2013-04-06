@@ -57,6 +57,8 @@ public class EquipeMontrealSim2 {
         Eihwaz.afficherScores();
         Jerah.afficherScores();
         Tiwaz.afficherScores();
+        Dagaaz.afficherEtapeGroupe();
+        
         
     }
 

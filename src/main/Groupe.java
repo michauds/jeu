@@ -16,7 +16,11 @@ public class Groupe {
     private String nomGroupe;
     private List<Druide> membres = new ArrayList<>();
     static public final int maximumParticipant = 4;
-
+    int ronde;
+    final String ELIMINATION = "ronde d'élimination";
+    final String DEMI_F = "demi-final";
+    final String FINAL = "FINAL";
+    
     public Groupe(String nomGroupe) {
         this.nomGroupe = nomGroupe;
     }
@@ -72,5 +76,28 @@ public class Groupe {
         }
         System.out.println(points);
         System.out.println(noms + "\n");
+    }
+     public void afficherEtapeGroupe(){
+        
+        if(membres.size() >= 3){
+            System.out.println("Groupe : " + nomGroupe + "ronde d'élimination");
+            
+        }else if(membres.size() == 2){
+            System.out.println("Groupe : " + nomGroupe + "demi-final");
+        }else if(membres.size() == 1){
+            System.out.println("Groupe : " + nomGroupe + "final");
+        }else{
+            System.out.println("Groupe : " + nomGroupe + "eliminer");
+        }
+        if(!membres.isEmpty()){
+            System.out.println("points : ");
+            for(int i=0; i<membres.size(); i++){
+                System.out.println( membres.get(i).getScore() + "    ");  
+            }
+            System.out.println("druides : ");
+             for(int i=0; i<membres.size(); i++){
+                System.out.println( membres.get(i).getNom() + "   ");  
+            }
+        }
     }
 }
