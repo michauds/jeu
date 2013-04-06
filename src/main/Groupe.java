@@ -125,6 +125,7 @@ public class Groupe extends Enregistrable{
         System.out.println(String.format("%s %-20s", letat,etat));
     }
     
+    @Override
     public String sauvegarder() {
         String seperateur = "#";
         String ligne = nomGroupe + seperateur + ronde();
@@ -135,7 +136,7 @@ public class Groupe extends Enregistrable{
                     unDruide.getScore() + seperateur + unDruide.getNombreAureus() +
                     seperateur + unDruide.isEstEleminer();
         }
-        return ligne + seperateur + anneeReference.getAnnee() + seperateur + anneeReference.getDescription();
+        return ligne + seperateur + anneeReference.getAnnee() + seperateur + anneeReference.getDescription() + System.getProperty("line.separator");
     }
     
     public void charger(String ligne) {

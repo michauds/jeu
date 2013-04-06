@@ -4,7 +4,10 @@
  */
 package main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+
 /**
  *
  * @author naddou
@@ -15,8 +18,10 @@ public class EquipeMontrealSim2 {
     private static Groupe Eihwaz;
     private static Groupe Jerah;
     private static Groupe Tiwaz;
+    
+    private final static String nomFichierSauvegarde = "SauvegardePartie.txt";
 
-    private static void initialisserUnePartie(){
+    private static void initialisserUnePartie() {
         Dagaaz = new Groupe("Dagaaz");
         Eihwaz = new Groupe("Eihwaz");
         Jerah = new Groupe("Jerah");
@@ -46,18 +51,28 @@ public class EquipeMontrealSim2 {
             // Logger l'erreur
         }
     }
-    private static void afficherScores(){
+
+    private static void afficherScores() {
         Dagaaz.afficherScores();
         Eihwaz.afficherScores();
         Jerah.afficherScores();
         Tiwaz.afficherScores();
     }
-    
-    private static void afficherDruidesActifs(){
+
+    private static void afficherDruidesActifs() {
         Dagaaz.afficherDruidesActifs();
         Eihwaz.afficherDruidesActifs();
         Jerah.afficherDruidesActifs();
         Tiwaz.afficherDruidesActifs();
+    }
+
+    private static void SauvegargerPartie(){
+        List<Enregistrable> ListEnregistarble = new ArrayList<>();
+        ListEnregistarble.add((Enregistrable) Dagaaz);
+        ListEnregistarble.add((Enregistrable) Eihwaz);
+        ListEnregistarble.add((Enregistrable) Jerah);
+        ListEnregistarble.add((Enregistrable) Tiwaz);
+        Enregistrement.sauvegarderFichier(nomFichierSauvegarde, ListEnregistarble);
     }
     /**
      * @param args the command line arguments
@@ -68,7 +83,6 @@ public class EquipeMontrealSim2 {
         afficherScores();
         //Dagaaz.afficherEtapeGroupe();
         afficherDruidesActifs();
-
+        SauvegargerPartie();
     }
-
 }

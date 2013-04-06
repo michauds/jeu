@@ -15,20 +15,15 @@ import java.util.List;
  */
 public class Enregistrement{
     
-    public static void sauvegarderFichier(String Fichier, List<Enregistrable> listObjetc){
-        try {
-            BufferedWriter out = new BufferedWriter(new FileWriter(Fichier), Integer.SIZE);
-            
-            for(int i=0; i < listObjetc.size(); i++) {
+    public static void sauvegarderFichier(String Fichier, List<Enregistrable> listObjetc) {
+        
+        try (BufferedWriter out = new BufferedWriter(new FileWriter(Fichier), Integer.SIZE)) {
+            for (int i = 0; i < listObjetc.size(); i++) {
                 String ligne = listObjetc.get(i).sauvegarder();
                 out.write(ligne);
             }
-            out.close();
         } catch (IOException e) {
-            
         }
-        
-        
     }
     public static void chargerFichier(String Fichier, List<Enregistrable> listObjetc){
         
