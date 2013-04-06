@@ -98,7 +98,9 @@ public class EquipeMontrealSim2 {
         
         Scanner in = new Scanner(System.in);
         File f = new File(nomFichierSauvegarde);
-        // TODO code application logic here
+        /*
+         * Vérifier s'il existe un fichier de jeu 
+         */
         if (f.exists()) {
             System.out.println("Il existe une partie enregistrée.");
             System.out.println("Voulez-vous rétablir la partie enregistrée? (O/N)");
@@ -125,14 +127,25 @@ public class EquipeMontrealSim2 {
         //Dagaaz.afficherEtapeGroupe();
         
         String entree = " ";
+        /*
+         * GAME LOOP
+         */
         while(entree.compareToIgnoreCase("e") != 0
                 && entree.compareToIgnoreCase("q") != 0) {
+            
             System.out.print("(L)ancer les runer,(E)nregistrer, ou (Q)uitter: ");
             entree = in.next();
+            /*
+             * JOUER UNE RONDE
+             */
             if (entree.equalsIgnoreCase("l")) {
+                
                 System.out.println("Lancement des runes!");
-            }
-        }
+            
+            } /* FIN D'UNE RONDE */
+        } /* FIN GAME LOOP */
+        
+        
         if(entree.equalsIgnoreCase("e")) {
             System.out.println("Enregistrement de la partie");
             SauvegargerPartie();
