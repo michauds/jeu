@@ -66,9 +66,10 @@ public class EquipeMontrealSim2 {
         String noms = "Druides:\t";
         String surface = "Surface:\t";
         String tombes = "Tombées:\t";
+        String v_surface = "Valeur S:\t";
+        String v_tombes = "Valeurs T:\t";
         for(int i=0; i < groupe.getMembres().size(); i++) {
-            
-            
+           
             points += String.valueOf(groupe.getMembres().get(i).getScore());    
             noms += groupe.getMembres().get(i).getNom();           
             Gobelet goblet = new Gobelet();
@@ -79,8 +80,10 @@ public class EquipeMontrealSim2 {
             for(int j = 0; j < runes.size(); j++) {
                 if(runes.get(j).getPosition() == Positionnement.ENJEU) {
                     surface += runes.get(j).toString();
+                    v_surface += runes.get(j).getValeur().toString();
                 } else {
                     tombes += runes.get(j).toString();
+                    v_tombes += runes.get(j).getValeur().toString();
                 }
             }
             
@@ -88,13 +91,18 @@ public class EquipeMontrealSim2 {
             tombes += "\t";
             noms += "\t";
             points += "\t";
-            
+            v_surface += "\t";
+            v_tombes += "\t";
         }
+        
         
         System.out.println(points);
         System.out.println(noms);
         System.out.println(surface);
+        System.out.println(v_surface);
         System.out.println(tombes);
+        System.out.println(v_tombes);
+        
     }
     
     
